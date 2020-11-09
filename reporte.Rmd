@@ -38,7 +38,7 @@ En varias especies de mamíferos, el reflejo de lordosis es indicativo de la rec
 
  Se ha descrito que existe una mayor liberación de estradiol en los folículos ováricos preovulatorios durante la fase de proestro en la rata hembra. El estradiol se  secreta al torrente sanguíneo en donde llega al núcleo ventromedial (NVM) del hipotálamo y algunas estructuras mesolímbicas. Ante el contacto con un macho, el estradiol facilita la expresión de los receptores a progesterona en el NVM y la síntesis de esta hormona en los astrocitos [@griffin2011ovarian; @micevych2017integrating]. Las neuronas del NVM proyectan a la sustancia gris periacueductal de la médula espinal induciendo que la hembra receptiva arquee la parte inferior de la columna vertebral y exponga los genitales por el movimiento pélvico hacia atrás, lo que es conocido como el reflejo de lordosis [@daniels1999central; @micevych2017integrating]. A partir de ésta y otras conductas, la hembra modula la iniciación y temporalidad de la interacción sexual en respuesta a los avances del macho [@pfaus1995neural].
 
-El presente experimento tiene como propósito replicar los efectos que tienen la administración de estradiol y su sinergia con la progesterona sobre la conducta sexual de la rata hembra.
+El presente experimento tiene como propósito replicar los efectos que tienen la administración de estradiol y la sinergia con la progesterona sobre la conducta sexual de la rata hembra.
 
 # Método
 
@@ -67,17 +67,23 @@ file_list <- lapply(files %>% set_names(files),
 
 ```
 
+## Experimento
+
 Para determinar el efecto del estradiol y la sinergia con progesterona sobre la conducta sexual, se utilizaron 20 ratas hembras ovariectomizadas con un peso entre 200-250 gramos y se dividieron en dos grupos: grupo estradiol (E, n=10) y grupo estradiol + progesterona (E+P, n=10).  El grupo E recibió una dosis de estradiol 25µg, mientras que el grupo E+P recibió estradiol 25µg / progesterona 1 mg / 0.05ml, ambos por vía subcutánea y utilizando aceite comestible como vehículo. 
 
 Posteriormente, cada rata hembra fue colocada con un macho de entre 300-350 gramos (machos n=10). Mientras se encontraban en parejas, se observó la receptividad manifestada por la hembra y se cuantificó el número de lordosis.  Se calculó el coeficiente de lordosis, el cual se determinó dividiendo el número total de respuestas de lordosis observadas entre el número total de montas e intromisiones multiplicado por 100. 
 
-La monta es definida como una conducta estereotipada que consiste en realizar una secuencia de movimientos de empuje pélvico, con o sin penetración vaginal. El macho suele posarse sobre sus patas traseras, mientras que la hembra realiza una lordosis que facilita el alineamiento genital entre ambos, mientras que el macho hace movimientos pélvicos rápidos con empuje antero-posterior durante aproximadamente 300ms. Inmediatamente después el macho se desmonta lentamente y entre cada monta hay una pausa de 20-80 segundos.Se cuantificaron las montas y sus latencias (s).
+## Análisis Conductual
+
+La monta es definida como una conducta estereotipada que consiste en realizar una secuencia de movimientos de empuje pélvico, con o sin penetración vaginal. El macho suele posarse sobre sus patas traseras, mientras que la hembra realiza una lordosis que facilita el alineamiento genital entre ambos, mientras que el macho hace movimientos pélvicos rápidos con empuje antero-posterior durante aproximadamente 300ms. Inmediatamente después el macho se desmonta lentamente y entre cada monta hay una pausa de 20-80 segundos. Se cuantificaron las montas y sus latencias (s).
 
 La intromisión consiste en la inserción del pene en la vagina. Cuando se observa, comienza con una monta, pero repentinamente el macho realiza un empuje pélvico profundo insertando el pene en la vagina durante un período de 200-300 ms de contacto genital. Inmediatamente después el macho desmonta y se acicala lamiéndose los genitales. Se cuantificaron las intromisiones y sus latencias (s).
 
-La eyaculación consiste en la expulsión de líquido seminal durante la penetración. Cuando se observa, comienza con una intromisión y se caracteriza por un empuje y penetración larga (750-2000 ms) acompañado de contracciones rítmicas del abdomen posterior y un levantamiento y separación lenta de las patas delanteras del macho. Después, el macho desmonta mucho más lentamente que como lo hace en una intromisión normal, se acicala lamiéndose los genitales y permanece inactivo por varios minutos. Durante la eyaculación hay contracciones rítmicas de los músculos bulboesponjosos e isquiocavernosos en la base del pene, del esfínter anal y de otros músculos; suele ocurrir después de 7-10 intromisiones con distancias  de 1-2 minutos. Se cuantificaron las latencias de eyaculación (s).
+La eyaculación consiste en la expulsión de líquido seminal durante la penetración. Cuando se observa, comienza con una intromisión y se caracteriza por un empuje y penetración larga (750-2000 ms) acompañado de contracciones rítmicas del abdomen posterior, así como de un levantamiento y separación lenta de las patas delanteras del macho. Después, el macho desmonta mucho más lentamente que como lo hace en una intromisión normal, se acicala lamiéndose los genitales y permanece inactivo por varios minutos. Durante la eyaculación hay contracciones rítmicas de los músculos bulboesponjosos e isquiocavernosos en la base del pene, del esfínter anal y de otros músculos; suele ocurrir después de 7-10 intromisiones con distancias  de 1-2 minutos. Se cuantificaron las latencias de eyaculación (s).
 
-Para comparar si ambos grupos son distintos, se utilizó una prueba T de student de Welch, con excepción de cuando se viola la suposición de normalidad de los residuos de estos modelos (probado mediante la prueba de Shapiro-Wilk), en cuyos casos se utilizó una U de Mann-Whitney. Todos los análisis fueron realizados con R versión 3.6.3.  
+## Análisis Estadístico 
+
+Para comparar si ambos grupos son distintos, se utilizó una prueba T de student de Welch, con excepción de cuando no se cumpla la suposición de normalidad de los residuos de estos modelos (probado mediante la prueba de Shapiro-Wilk), en cuyos casos se utilizó una U de Mann-Whitney. Todos los análisis fueron realizados con R versión 3.6.3.  
 
 
 ```{r tabla}
