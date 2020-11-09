@@ -1,7 +1,7 @@
 ---
 output: 
   pdf_document:
-title: "Practica Conducta Sexual"
+title: 'Practica: "Conducta Sexual"'
 author: 
   - Angeles Valdez Diego  
   - López Castro Alejandra 
