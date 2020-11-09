@@ -34,10 +34,11 @@ library(knitr)
 
 # Introducción
 
-En varias especies de mamíferos, el reflejo de lordosis es indicativo de la receptividad sexual de las hembras. A partir de estudios realizados a lo largo del siglo pasado, se conoce que la ocurrencia de dicho reflejo es directamente proporcional a las dosis de estradiol y progesterona actuando en conjunto [@whalen1974estrogen]. Ante el contacto con un macho, ambas hormonas ováricas actúan en el núcleo ventromedial del hipotálamo [@griffin2011ovarian], induciendo que la hembra receptiva arquee la parte inferior de la columna vertebral y exponga los genitales por el movimiento pélvico hacia atrás; esto en función de la sinergia de estradiol y progesterona. En este sentido, la hembra modula la iniciación y temporalidad de la interacción sexual en respuesta a los avances del macho [@pfaff1994cellular].
+En varias especies de mamíferos, el reflejo de lordosis es indicativo de la receptividad sexual de las hembras. A partir de estudios realizados a lo largo del siglo pasado, se conoce que la ocurrencia de dicho reflejo en hembras es directamente proporcional a las dosis de estradiol y progesterona actuando en conjunto [@whalen1974estrogen].
+
+ Se ha descrito que existe una mayor liberación de estradiol en los folículos ováricos preovulatorios durante la fase de proestro en la rata hembra. El estradiol se  secreta al torrente sanguíneo en donde llega al núcleo ventromedial (NVM) del hipotálamo y algunas estructuras mesolímbicas. Ante el contacto con un macho, el estradiol facilita la expresión de los receptores a progesterona en el NVM y la síntesis de esta hormona en los astrocitos [@griffin2011ovarian; @micevych2017integrating]. Las neuronas del NVM proyectan a la sustancia gris periacueductal de la médula espinal induciendo que la hembra receptiva arquee la parte inferior de la columna vertebral y exponga los genitales por el movimiento pélvico hacia atrás, lo que es conocido como el reflejo de lordosis [@daniels1999central; @micevych2017integrating]. A partir de ésta y otras conductas, la hembra modula la iniciación y temporalidad de la interacción sexual en respuesta a los avances del macho [@pfaus1995neural].
 
 El presente experimento tiene como propósito replicar los efectos que tienen la administración de estradiol y su sinergia con la progesterona sobre la conducta sexual de la rata hembra.
-
 
 # Método
 
@@ -202,6 +203,7 @@ plot_grid(lista_plots$coeficiente_lordosis.txt,
 
 # Conclusión
 
-Nuestros resultados muestran que la elicitación del reflejo de lordosis en la rata hembra se presenta en mayor cantidad ante la administración de estradiol + progesterona, lo que confirma la sinergia de estas hormonas ováricas sobre dicha conducta. Se conoce que Consecuentemente, considerando que es la rata hembra la que modula la iniciación y temporalidad de la interacción sexual, los patrones conductuales del macho: monta, intromisión y eyaculación, también se presentaron en mayor cantidad mientras interactuaban con ratas hembras que fueron administradas estradiol + progesterona.
+Nuestros resultados muestran que la administración de estradiol + progesterona elicita el reflejo de lordosis un mayor número de veces en comparación con el grupo al que sólo se le administró estradiol, lo que confirma la sinergia de estas hormonas ováricas sobre dicha conducta. Además de haber sido el coeficiente de lordosis menor en el grupo E, las latencias de montas, intromisiones y eyaculaciones fueron más largas en comparación con el grupo E+P. Dicho de otra manera, ya que la lordosis facilita el alineamiento genital entre hembra y macho para una intromisión y eyaculación eficiente, hubo menor número de montas e intromisiones en el grupo E y latencias más largas, en comparación con las hembras del grupo E+P. Por lo que las conductas manifestadas en el grupo E+P exhiben la importancia del conjunto de estradiol + progesterona en la iniciación y mantenimiento de conducta de cópula y por lo tanto de la reproducción.  
+
 
 # Referencias
