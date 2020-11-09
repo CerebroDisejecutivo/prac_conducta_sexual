@@ -1,34 +1,18 @@
 ---
+output: 
+  pdf_document:
 title: "Practica Conducta Sexual"
-author: "Diego Ramírez, Alejandra López, Deyanira Munguía, Rafael Sandoval, Diego Angeles"
+author: 
+  - Angeles Valdez Diego  
+  - López Castro Alejandra 
+  - Munguía Villanueva Deyanira 
+  - Sandoval Rodríguez Rafael  
+  - Ramírez González Diego 
 date: "`r Sys.Date()`"
-output: pdf_document
 bibliography: ref.bibtex
+header-includes: 
+  - \renewcommand{\and}{\\}
 ---
-
-# Introducción
-
-En varias especies de mamíferos, el reflejo de lordosis es indicativo de la receptividad sexual de las hembras. A partir de estudios realizados a lo largo del siglo pasado, se conoce que la ocurrencia de dicho reflejo es directamente proporcional a las dosis de estradiol y progesterona actuando en conjunto [@whalen1974estrogen]. Ante el contacto con un macho, ambas hormonas ováricas actúan en el núcleo ventromedial del hipotálamo [@griffin2011ovarian], induciendo que la hembra receptiva arquee la parte inferior de la columna vertebral y exponga los genitales por el movimiento pélvico hacia atrás; esto en función de la sinergia de estradiol y progesterona. En este sentido, la hembra modula la iniciación y temporalidad de la interacción sexual en respuesta a los avances del macho [@pfaff1994cellular].
-
-El presente experimento tiene como propósito replicar los efectos que tienen la administración de estradiol y su sinergia con la progesterona sobre la conducta sexual de la rata hembra.
-
-
-# Método
-
-Para determinar el efecto del estradiol y la sinergia con progesterona sobre la conducta sexual, se utilizaron 20 ratas hembras ovariectomizadas con un peso entre 200-250 gramos y se dividieron en dos grupos: grupo estradiol (E, n=10) y grupo estradiol + progesterona (E+P, n=10).  El grupo E recibió una dosis de estradiol 25µg, mientras que el grupo E+P recibió estradiol 25µg / progesterona 1 mg / 0.05ml, ambos por vía subcutánea y utilizando aceite comestible como vehículo. 
-
-Posteriormente, cada rata hembra fue colocada con un macho de entre 300-350 gramos (machos n=10). Mientras se encontraban en parejas, se observó la receptividad manifestada por la hembra y se cuantificó el número de lordosis.  Se calculó el coeficiente de lordosis, el cual se determinó dividiendo el número total de respuestas de lordosis observadas entre el número total de montas e intromisiones multiplicado por 100. 
-
-La monta es definida como una conducta estereotipada que consiste en realizar una secuencia de movimientos de empuje pélvico, con o sin penetración vaginal. El macho suele posarse sobre sus patas traseras, mientras que la hembra realiza una lordosis que facilita el alineamiento genital entre ambos, mientras que el macho hace movimientos pélvicos rápidos con empuje antero-posterior durante aproximadamente 300ms. Inmediatamente después el macho se desmonta lentamente y entre cada monta hay una pausa de 20-80 segundos.Se cuantificaron las montas y sus latencias (s).
-
-La intromisión consiste en la inserción del pene en la vagina. Cuando se observa, comienza con una monta, pero repentinamente el macho realiza un empuje pélvico profundo insertando el pene en la vagina durante un período de 200-300 ms de contacto genital. Inmediatamente después el macho desmonta y se acicala lamiéndose los genitales. Se cuantificaron las intromisiones y sus latencias (s).
-
-La eyaculación consiste en la expulsión de líquido seminal durante la penetración. Cuando se observa, comienza con una intromisión y se caracteriza por un empuje y penetración larga (750-2000 ms) acompañado de contracciones rítmicas del abdomen posterior y un levantamiento y separación lenta de las patas delanteras del macho. Después, el macho desmonta mucho más lentamente que como lo hace en una intromisión normal, se acicala lamiéndose los genitales y permanece inactivo por varios minutos. Durante la eyaculación hay contracciones rítmicas de los músculos bulboesponjosos e isquiocavernosos en la base del pene, del esfínter anal y de otros músculos; suele ocurrir después de 7-10 intromisiones con distancias  de 1-2 minutos. Se cuantificaron las latencias de eyaculación (s).
-
-Para comparar si ambos grupos son distintos, se utilizó una prueba T de student de Welch, con excepción de cuando se viola la suposición de normalidad de los residuos de estos modelos (probado mediante la prueba de Shapiro-Wilk), en cuyos casos se utilizó una U de Mann-Whitney. Todos los análisis fueron realizados con R versión 3.6.3.  
-
-
-# Resultados
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, message = F, warning = F)
@@ -42,17 +26,20 @@ library(tidyverse)
 library(here)
 library(broom)
 library(cowplot)
-library(ggsignif)
 library(knitr)
-
-
-library(car)
-library(psych)
-library(GGally)
-
 
 # Para que el output sea pdf necesitas latex instalado. Si no lo tienes, instala el paquete tinytex con install.packages("tinytex") cargalo con library(tinytex) y luego utiliza la función tinytex::install_tinytex()
 ```
+
+
+# Introducción
+
+En varias especies de mamíferos, el reflejo de lordosis es indicativo de la receptividad sexual de las hembras. A partir de estudios realizados a lo largo del siglo pasado, se conoce que la ocurrencia de dicho reflejo es directamente proporcional a las dosis de estradiol y progesterona actuando en conjunto [@whalen1974estrogen]. Ante el contacto con un macho, ambas hormonas ováricas actúan en el núcleo ventromedial del hipotálamo [@griffin2011ovarian], induciendo que la hembra receptiva arquee la parte inferior de la columna vertebral y exponga los genitales por el movimiento pélvico hacia atrás; esto en función de la sinergia de estradiol y progesterona. En este sentido, la hembra modula la iniciación y temporalidad de la interacción sexual en respuesta a los avances del macho [@pfaff1994cellular].
+
+El presente experimento tiene como propósito replicar los efectos que tienen la administración de estradiol y su sinergia con la progesterona sobre la conducta sexual de la rata hembra.
+
+
+# Método
 
 ```{r cargar_datos}
 
@@ -79,10 +66,31 @@ file_list <- lapply(files %>% set_names(files),
 
 ```
 
+Para determinar el efecto del estradiol y la sinergia con progesterona sobre la conducta sexual, se utilizaron 20 ratas hembras ovariectomizadas con un peso entre 200-250 gramos y se dividieron en dos grupos: grupo estradiol (E, n=10) y grupo estradiol + progesterona (E+P, n=10).  El grupo E recibió una dosis de estradiol 25µg, mientras que el grupo E+P recibió estradiol 25µg / progesterona 1 mg / 0.05ml, ambos por vía subcutánea y utilizando aceite comestible como vehículo. 
 
-```{r}
-resultados <- lapply(file_list, 
+Posteriormente, cada rata hembra fue colocada con un macho de entre 300-350 gramos (machos n=10). Mientras se encontraban en parejas, se observó la receptividad manifestada por la hembra y se cuantificó el número de lordosis.  Se calculó el coeficiente de lordosis, el cual se determinó dividiendo el número total de respuestas de lordosis observadas entre el número total de montas e intromisiones multiplicado por 100. 
+
+La monta es definida como una conducta estereotipada que consiste en realizar una secuencia de movimientos de empuje pélvico, con o sin penetración vaginal. El macho suele posarse sobre sus patas traseras, mientras que la hembra realiza una lordosis que facilita el alineamiento genital entre ambos, mientras que el macho hace movimientos pélvicos rápidos con empuje antero-posterior durante aproximadamente 300ms. Inmediatamente después el macho se desmonta lentamente y entre cada monta hay una pausa de 20-80 segundos.Se cuantificaron las montas y sus latencias (s).
+
+La intromisión consiste en la inserción del pene en la vagina. Cuando se observa, comienza con una monta, pero repentinamente el macho realiza un empuje pélvico profundo insertando el pene en la vagina durante un período de 200-300 ms de contacto genital. Inmediatamente después el macho desmonta y se acicala lamiéndose los genitales. Se cuantificaron las intromisiones y sus latencias (s).
+
+La eyaculación consiste en la expulsión de líquido seminal durante la penetración. Cuando se observa, comienza con una intromisión y se caracteriza por un empuje y penetración larga (750-2000 ms) acompañado de contracciones rítmicas del abdomen posterior y un levantamiento y separación lenta de las patas delanteras del macho. Después, el macho desmonta mucho más lentamente que como lo hace en una intromisión normal, se acicala lamiéndose los genitales y permanece inactivo por varios minutos. Durante la eyaculación hay contracciones rítmicas de los músculos bulboesponjosos e isquiocavernosos en la base del pene, del esfínter anal y de otros músculos; suele ocurrir después de 7-10 intromisiones con distancias  de 1-2 minutos. Se cuantificaron las latencias de eyaculación (s).
+
+Para comparar si ambos grupos son distintos, se utilizó una prueba T de student de Welch, con excepción de cuando se viola la suposición de normalidad de los residuos de estos modelos (probado mediante la prueba de Shapiro-Wilk), en cuyos casos se utilizó una U de Mann-Whitney. Todos los análisis fueron realizados con R versión 3.6.3.  
+
+
+```{r tabla}
+
+order_vector <- c("coeficiente_lordosis.txt", 
+                  "numero_montas.txt", 
+                  "numero_intromisiones.txt",
+                  "latencia_monta.txt",
+                  "latencia_intromision.txt", 
+                  "latencia_eyaculacion.txt")
+
+resultados <- lapply(order_vector, 
        function(x){
+         x <- file_list[[paste(x)]]
          lm_model <- x %>% 
            with(., lm(formula = .[,2][[1]] ~ 1 + .[,1][[1]]))
            
@@ -121,7 +129,7 @@ resultados[-1, "p.value"] <- resultados[-1,] %>%
   transmute(p.value = p.adjust(p.value, method = "bonferroni"))
 
 resultados %>% 
-  transmute(Variable = c("Coef. Lordosis", "Lat. Eyaculación", "Lat. Intromisión", "Lat. Monta", "Num. Intromisiones", "Num. Montas"),
+  transmute(Variable = c("Coef. Lordosis", "Num. Montas", "Num. Intromisiones", "Lat. Monta" , "Lat. Intromisión" ,"Lat. Eyaculación"),
             'E' = paste(round(mean_E), "±", round(sd_E)), 'E+P' = paste(round(`mean_E+P`), "±", round(`sd_E+P`)), 
             # 'DE (E)' = round(sd_E), 'DE (E+P)' = round(`sd_E+P`),
             # 'Mediana (E)' = round(median_E),  'Mediana (E+P)' = round(`median_E+P`), 
@@ -133,11 +141,18 @@ resultados %>%
   kable()
 
 
-
+# lapply(file_list, function(x){ x %>% 
+#              with(., t.test(.[,2][[1]] ~ .[,1][[1]] ))
+# }
+# )
 
 ```
+**Tabla 1.** Se muestran las estadísticas descriptas de cada grupo para cada medida conductual, así como comparación estadística entre ambos grupos. Se muestra qué prueba estadística fue utilizada para cada comparación, según si se cumple la suposición de normalidad de los residuos por medio de la prueba Shapiro-Wilk. \*= 0.05, \*\* = 0.01 y \* = 0.001. 
 
 
+# Resultados
+
+El coeficiente de lordosis fue significativamente mayor en el grupo de hembras E+P en comparación con el grupo E (t(16.3)= -5.9, p < .001). Además, el grupo E+P tuvo mayor número de montas (t(17.5)= -3.8, p < .01)  e intromisiones (t(12.5)= -8.4, p < .001) que el grupo E. De manera contraria, las hembras del grupo E tuvieron latencias de monta (U = 98, p < .01), intromisión (U = 100, p < .001) y eyaculación (U = 100, p < .001) más prolongadas que las del grupo E+P.
 
 
 ```{r graficas}
@@ -174,18 +189,19 @@ lista_plots <- lapply(1:length(file_list) %>% set_names(names(file_list)), funct
 
 # Aunque pudimos haber ingresado la lista de ggplots a cowplot::plot_grid para hacer un plot combindo de todos los ggplots individuales, ponemos cada elemento de la lista (cada ggplot) en el orden deseado, en lugar de su orden en la lista. Hacemos este plot combinado con 3 columnas y 2 filas. 
 
-plot_grid(lista_plots$latencia_eyaculacion.txt, 
-          lista_plots$latencia_intromision.txt, 
-          lista_plots$latencia_monta.txt, 
-          lista_plots$coeficiente_lordosis.txt, 
+plot_grid(lista_plots$coeficiente_lordosis.txt, 
+          lista_plots$numero_montas.txt,
           lista_plots$numero_intromisiones.txt,
-          lista_plots$numero_montas.txt, 
+          lista_plots$latencia_eyaculacion.txt, 
+          lista_plots$latencia_monta.txt,
+          lista_plots$latencia_intromision.txt, 
           ncol = 3, nrow = 2)
 
 ```
+**Figura 1.** Se muestran las gráficas con los resultados de ambos grupos. El coeficiente de lordosis fue significativamente mayor en el grupo E+P en comparación con el grupo E. Las hembras del grupo E+P recibieron más montas e intromisiones que las del grupo E. Las latencias de monta, intromisión y eyaculación fueron más cortas en los machos que interactuaban con las embras E+P que con las hembras E.
 
 # Conclusión
 
-Nuestros resultados sugieren que el reflejo de lordosis en la rata hembra, modula la iniciación y temporalidad de la interacción sexual, esta se presenta primordialmente ante la administración de estradiol + progesterona. Se confirma la sinergia de estas hormonas sobre el núcleo ventromedial del hipotálamo. Consecuentemente, los patrones conductuales del macho: monta, intromisión y eyaculación, también se presentan mayormente ante las ratas hembras que fueron administradas con estradiol + progesterona. 
+Nuestros resultados muestran que la elicitación del reflejo de lordosis en la rata hembra se presenta en mayor cantidad ante la administración de estradiol + progesterona, lo que confirma la sinergia de estas hormonas ováricas sobre dicha conducta. Se conoce que Consecuentemente, considerando que es la rata hembra la que modula la iniciación y temporalidad de la interacción sexual, los patrones conductuales del macho: monta, intromisión y eyaculación, también se presentaron en mayor cantidad mientras interactuaban con ratas hembras que fueron administradas estradiol + progesterona.
 
 # Referencias
